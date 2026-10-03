@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Practice: Nonessential Adjective Clauses</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .comma-btn {
+            transition: all 0.2s ease;
+        }
+        .comma-btn.active {
+            background-color: #2563eb;
+            color: white;
+            border-color: #1d4ed8;
+            font-weight: bold;
+            transform: scale(1.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-600 text-white p-2.5 rounded-xl shadow-md shadow-blue-500/20">
+                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-slate-900 leading-tight">Grammar Lab: 7.8</h1>
+                    <p class="text-xs text-slate-500 font-medium">Nonessential Adjective Clauses (Relative Clauses)</p>
+                </div>
+            </div>
+            
+            <!-- Progress Pill -->
+            <div class="flex items-center gap-4 bg-slate-100 px-4 py-2 rounded-full border border-slate-200">
+                <div class="text-xs font-semibold text-slate-600">
+                    Progress: <span id="progress-text" class="text-blue-600">0/36</span>
+                </div>
+                <div class="w-24 bg-slate-200 h-2 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="bg-blue-600 h-full w-0 transition-all duration-300"></div>
+                </div>
+                <div class="text-xs font-bold text-slate-700 border-l border-slate-300 pl-3">
+                    Score: <span id="score-text" class="text-emerald-600">0</span> pts
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8 w-full flex-grow">
+        
+        <!-- Grammar Cheat Sheet Banner -->
+        <section class="bg-white rounded-2xl p-6 mb-8 border border-slate-200 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+            
+            <div class="flex items-center justify-between cursor-pointer" id="cheat-sheet-toggle">
+                <div class="flex items-center gap-3">
+                    <span class="p-2 bg-amber-100 text-amber-700 rounded-lg"><i class="fa-solid fa-lightbulb text-lg"></i></span>
+                    <h2 class="text-lg font-bold text-slate-800">Grammar Reference & Rules</h2>
+                </div>
+                <button class="text-slate-400 hover:text-slate-600 focus:outline-none" aria-label="Toggle Cheat Sheet">
+                    <i id="cheat-sheet-icon" class="fa-solid fa-chevron-down text-lg transition-transform duration-200"></i>
+                </button>
+            </div>
+
+            <div id="cheat-sheet-content" class="mt-4 pt-4 border-t border-slate-100 hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-semibold text-blue-900 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info text-blue-500"></i> Key Principles
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-600 list-disc list-inside">
+                            <li><strong class="text-slate-800">Extra Information:</strong> A nonessential clause adds extra detail. The sentence remains grammatically complete without it.</li>
+                            <li><strong class="text-slate-800">Comma Rule:</strong> Always separate nonessential adjective clauses from the main clause with <strong>commas</strong>.</li>
+                            <li><strong class="text-slate-800">Relative Pronouns:</strong> Begins with <em>who, whom, which, where, when,</em> or <em>whose</em>.</li>
+                            <li><strong class="text-amber-600 font-semibold">The "THAT" Rule:</strong> The word <strong class="underline decoration-red-400">THAT</strong> is NEVER used in nonessential adjective clauses! Use <em>which</em> instead.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-blue-900 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-book-open text-blue-500"></i> Examples
+                        </h3>
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm space-y-2.5">
+                            <p><strong>People:</strong> Steve Jobs<span class="text-blue-600 font-bold">, who co-founded Apple,</span> was a technology visionary.</p>
+                            <p><strong>Things:</strong> ENIAC<span class="text-blue-600 font-bold">, which was built in 1945,</span> was a huge computer.</p>
+                            <p><strong>Places:</strong> Harvard University<span class="text-blue-600 font-bold">, where Bill Gates studied,</span> is in Massachusetts.</p>
+                            <p><strong>Possession:</strong> Reshma Saujani<span class="text-blue-600 font-bold">, whose dad worked as an engineer,</span> founded Girls Who Code.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-3" id="section-tabs">
+            <button onclick="switchTab('secA')" id="tab-secA" class="px-4 py-2.5 rounded-xl font-medium text-sm transition-all bg-blue-600 text-white shadow-sm flex items-center gap-2">
+                <i class="fa-solid fa-quote-left"></i> Sec A: Insert Commas
+            </button>
+            <button onclick="switchTab('secB')" id="tab-secB" class="px-4 py-2.5 rounded-xl font-medium text-sm transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 flex items-center gap-2">
+                <i class="fa-solid fa-list-check"></i> Sec B: Relative Pronouns
+            </button>
+            <button onclick="switchTab('secC')" id="tab-secC" class="px-4 py-2.5 rounded-xl font-medium text-sm transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 flex items-center gap-2">
+                <i class="fa-solid fa-link"></i> Sec C: Combine Sentences
+            </button>
+            <button onclick="switchTab('secD')" id="tab-secD" class="px-4 py-2.5 rounded-xl font-medium text-sm transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 flex items-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation"></i> Sec D: Spot the Errors
+            </button>
+        </div>
+
+        <!-- EXERCISE SECTIONS CONTAINER -->
+        <div id="exercise-container">
+            
+            <!-- SECTION A -->
+            <div id="secA" class="tab-content space-y-6">
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-xl">
+                    <h3 class="font-bold text-blue-900 text-base">Section A: Insert Commas</h3>
+                    <p class="text-xs sm:text-sm text-blue-800 mt-1">
+                        Click on the space slots <span class="inline-block bg-white border border-blue-300 rounded px-1.5 py-0.5 text-xs text-blue-600 font-bold">,</span> where commas are needed to separate the nonessential adjective clause from the main sentence.
+                    </p>
+                </div>
+                <div id="secA-questions" class="space-y-4"></div>
+            </div>
+
+            <!-- SECTION B -->
+            <div id="secB" class="tab-content space-y-6 hidden">
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-xl">
+                    <h3 class="font-bold text-blue-900 text-base">Section B: Choose Relative Pronoun</h3>
+                    <p class="text-xs sm:text-sm text-blue-800 mt-1">
+                        Choose the correct relative pronoun (<em>who, whom, which, where, when, whose</em>) to complete each nonessential clause. Remember: <strong>that</strong> cannot be used here!
+                    </p>
+                </div>
+                <div id="secB-questions" class="space-y-4"></div>
+            </div>
+
+            <!-- SECTION C -->
+            <div id="secC" class="tab-content space-y-6 hidden">
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-xl">
+                    <h3 class="font-bold text-blue-900 text-base">Section C: Sentence Combining</h3>
+                    <p class="text-xs sm:text-sm text-blue-800 mt-1">
+                        Select the option that correctly combines the two sentences into one using a nonessential clause with correct relative pronouns and commas.
+                    </p>
+                </div>
+                <div id="secC-questions" class="space-y-4"></div>
+            </div>
+
+            <!-- SECTION D -->
+            <div id="secD" class="tab-content space-y-6 hidden">
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-xl">
+                    <h3 class="font-bold text-blue-900 text-base">Section D: Error Spotting & Multiple Choice</h3>
+                    <p class="text-xs sm:text-sm text-blue-800 mt-1">
+                        Identify grammatical errors such as incorrect relative pronoun usage, missing commas, or improper use of 'that'.
+                    </p>
+                </div>
+                <div id="secD-questions" class="space-y-4"></div>
+            </div>
+
+        </div>
+
+        <!-- Global Action Bar -->
+        <div class="mt-10 flex flex-wrap justify-between items-center bg-white p-4 rounded-2xl border border-slate-200 shadow-sm gap-4">
+            <button onclick="resetAll()" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-600 hover:bg-slate-100 font-medium text-sm transition flex items-center gap-2">
+                <i class="fa-solid fa-rotate-left"></i> Reset All Progress
+            </button>
+            <button onclick="checkAllAnswers()" class="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md shadow-emerald-600/20 transition flex items-center gap-2">
+                <i class="fa-solid fa-circle-check"></i> Check Current Answers
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+        <p>Interactive Grammar Workbook • Designed for Self-Paced Practice</p>
+        <p class="mt-1">Nonessential Adjective Clauses (7.8)</p>
+    </footer>
+
+    <!-- Completion Modal -->
+    <div id="summary-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center relative animate-bounce-short">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-800 mb-1">Great Job!</h2>
+            <p class="text-sm text-slate-500 mb-6">You have completed the grammar practice exercises.</p>
+            
+            <div class="bg-slate-50 rounded-2xl p-4 mb-6 border border-slate-100 flex justify-around">
+                <div>
+                    <div class="text-xs text-slate-400 uppercase font-semibold">Total Score</div>
+                    <div id="modal-score" class="text-2xl font-black text-emerald-600">0/36</div>
+                </div>
+                <div class="border-r border-slate-200"></div>
+                <div>
+                    <div class="text-xs text-slate-400 uppercase font-semibold">Accuracy</div>
+                    <div id="modal-accuracy" class="text-2xl font-black text-blue-600">0%</div>
+                </div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="closeModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold text-sm transition">
+                    Review Answers
+                </button>
+                <button onclick="resetAll(); closeModal();" class="flex-1 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold text-sm transition shadow-md shadow-blue-500/20">
+                    Try Again
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questionsData = {
+            secA: [
+                {
+                    id: 'a1',
+                    textParts: ["The first modern computer", "which was called ENIAC", "took up a lot of space."],
+                    correctCommas: [true, true],
+                    explanation: "'which was called ENIAC' is a nonessential clause providing extra detail about the computer."
+                },
+                {
+                    id: 'a2',
+                    textParts: ["ENIAC was created in 1942", "when the U.S. was involved in World War II", "."],
+                    correctCommas: [true, false],
+                    explanation: "'when the U.S. was involved in World War II' comes at the end of sentence, needing a comma before 'when'."
+                },
+                {
+                    id: 'a3',
+                    textParts: ["Personal computers", "which were introduced in the 1970s", "were smaller and faster than previous computers."],
+                    correctCommas: [true, true],
+                    explanation: "Nonessential clause 'which were introduced in the 1970s' must be enclosed in commas."
+                },
+                {
+                    id: 'a4',
+                    textParts: ["Reshma Saujani", "whose name is widely recognized", "is making a big difference in tech education."],
+                    correctCommas: [true, true],
+                    explanation: "'whose name is widely recognized' is extra information about Reshma Saujani."
+                },
+                {
+                    id: 'a5',
+                    textParts: ["Bill Gates went to Harvard University", "where he developed the programming language BASIC", "."],
+                    correctCommas: [true, false],
+                    explanation: "'where he developed...' describes Harvard University nonessentially; requires comma before 'where'."
+                },
+                {
+                    id: 'a6',
+                    textParts: ["Bill Gates dropped out of Harvard to work with Paul Allen", "who was his high school friend", "."],
+                    correctCommas: [true, false],
+                    explanation: "'who was his high school friend' is nonessential extra detail about Paul Allen."
+                },
+                {
+                    id: 'a7',
+                    textParts: ["Bill and Melinda Gates set up a foundation", "which helps people in need all over the world", "."],
+                    correctCommas: [true, false],
+                    explanation: "'which helps people...' is a nonessential clause added to the end of the sentence."
+                },
+                {
+                    id: 'a8',
+                    textParts: ["Jeff Bezos got money from his parents", "who lent him $300,000 to start Amazon", "."],
+                    correctCommas: [true, false],
+                    explanation: "'who lent him...' requires a comma before 'who'."
+                },
+                {
+                    id: 'a9',
+                    textParts: ["The iMac", "which was popular in the 1990s", "came in bright colors such as grape and blueberry."],
+                    correctCommas: [true, true],
+                    explanation: "Set off 'which was popular in the 1990s' with commas before and after."
+                },
+                {
+                    id: 'a10',
+                    textParts: ["The new company headquarters is in California", "where many tech giants are based", "."],
+                    correctCommas: [true, false],
+                    explanation: "'where many tech giants are based' adds nonessential geographical context."
+                }
+            ],
+            secB: [
+                {
+                    id: 'b1',
+                    prefix: "Ada Lovelace, ",
+                    suffix: " collaborated with Charles Babbage, is considered the first computer programmer.",
+                    options: ["who", "which", "where", "that"],
+                    correct: "who",
+                    explanation: "Use 'who' for people (Ada Lovelace). 'That' is not allowed in nonessential clauses."
+                },
+                {
+                    id: 'b2',
+                    prefix: "Girls Who Code, ",
+                    suffix: " operates in the U.S., has reached over 90,000 students.",
+                    options: ["who", "which", "whose", "where"],
+                    correct: "which",
+                    explanation: "Use 'which' for organizations/things in nonessential clauses."
+                },
+                {
+                    id: 'b3',
+                    prefix: "Steve Jobs, ",
+                    suffix: " name is associated with Apple, was born in California.",
+                    options: ["who", "whom", "whose", "which"],
+                    correct: "whose",
+                    explanation: "'Whose' shows possession ('whose name' = his name)."
+                },
+                {
+                    id: 'b4',
+                    prefix: "Silicon Valley, ",
+                    suffix: " many start-ups are founded, is in northern California.",
+                    options: ["which", "where", "when", "that"],
+                    correct: "where",
+                    explanation: "'Where' refers to a place (Silicon Valley)."
+                },
+                {
+                    id: 'b5',
+                    prefix: "In 1976, ",
+                    suffix: " Apple was founded, personal computing was just beginning.",
+                    options: ["where", "which", "when", "who"],
+                    correct: "when",
+                    explanation: "'When' refers to a time/year (1976)."
+                },
+                {
+                    id: 'b6',
+                    prefix: "Tim Berners-Lee, ",
+                    suffix: " invented the World Wide Web, was born in London.",
+                    options: ["who", "which", "whose", "that"],
+                    correct: "who",
+                    explanation: "Use 'who' as the subject referring to a person (Tim Berners-Lee)."
+                },
+                {
+                    id: 'b7',
+                    prefix: "The IBM PC, ",
+                    suffix: " was released in 1981, established a standard for corporate computing.",
+                    options: ["that", "which", "where", "who"],
+                    correct: "which",
+                    explanation: "Use 'which' for nonessential clauses referring to objects/machines."
+                },
+                {
+                    id: 'b8',
+                    prefix: "Charles Babbage, with ",
+                    suffix: " Ada Lovelace worked, designed the Analytical Engine.",
+                    options: ["who", "whom", "whose", "which"],
+                    correct: "whom",
+                    explanation: "Use 'whom' after a preposition ('with whom') when referring to a person."
+                },
+                {
+                    id: 'b9',
+                    prefix: "Alan Turing, ",
+                    suffix: " work was crucial to breaking the Enigma code, was a mathematician.",
+                    options: ["who", "whom", "whose", "which"],
+                    correct: "whose",
+                    explanation: "'Whose' indicates possession ('his work')."
+                },
+                {
+                    id: 'b10',
+                    prefix: "MIT, ",
+                    suffix: " many famous computer scientists studied, is in Cambridge, Massachusetts.",
+                    options: ["where", "which", "when", "that"],
+                    correct: "where",
+                    explanation: "Use 'where' to refer to a university campus as a location."
+                }
+            ],
+            secC: [
+                {
+                    id: 'c1',
+                    prompt: "Combine: <em>Grace Hopper was a computer scientist. She developed the first compiler.</em>",
+                    options: [
+                        "Grace Hopper, who developed the first compiler, was a computer scientist.",
+                        "Grace Hopper that developed the first compiler was a computer scientist.",
+                        "Grace Hopper, which developed the first compiler, was a computer scientist.",
+                        "Grace Hopper who developed the first compiler was a computer scientist."
+                    ],
+                    correct: 0,
+                    explanation: "Person -> 'who', surrounded by commas for nonessential information."
+                },
+                {
+                    id: 'c2',
+                    prompt: "Combine: <em>The Python language was created in 1991. It is known for readability.</em>",
+                    options: [
+                        "The Python language which is known for readability was created in 1991.",
+                        "The Python language, that is known for readability, was created in 1991.",
+                        "The Python language, which is known for readability, was created in 1991.",
+                        "The Python language, where is known for readability, was created in 1991."
+                    ],
+                    correct: 2,
+                    explanation: "Thing -> 'which', requires commas on both sides of the nonessential clause."
+                },
+                {
+                    id: 'c3',
+                    prompt: "Combine: <em>Seattle is a major tech hub. Amazon is headquartered there.</em>",
+                    options: [
+                        "Seattle, where Amazon is headquartered, is a major tech hub.",
+                        "Seattle, which Amazon is headquartered, is a major tech hub.",
+                        "Seattle where Amazon is headquartered is a major tech hub.",
+                        "Seattle, that Amazon is headquartered, is a major tech hub."
+                    ],
+                    correct: 0,
+                    explanation: "Place -> 'where', separated by commas."
+                },
+                {
+                    id: 'c4',
+                    prompt: "Combine: <em>Mark Zuckerberg founded Facebook. His company expanded rapidly.</em>",
+                    options: [
+                        "Mark Zuckerberg, who company expanded rapidly, founded Facebook.",
+                        "Mark Zuckerberg, whose company expanded rapidly, founded Facebook.",
+                        "Mark Zuckerberg whose company expanded rapidly founded Facebook.",
+                        "Mark Zuckerberg, which company expanded rapidly, founded Facebook."
+                    ],
+                    correct: 1,
+                    explanation: "Possessive ('his company') -> 'whose company' with commas."
+                },
+                {
+                    id: 'c5',
+                    prompt: "Combine: <em>The year 2007 was remarkable. The first iPhone was released then.</em>",
+                    options: [
+                        "The year 2007, when the first iPhone was released, was remarkable.",
+                        "The year 2007, where the first iPhone was released, was remarkable.",
+                        "The year 2007 that the first iPhone was released was remarkable.",
+                        "The year 2007, which the first iPhone was released, was remarkable."
+                    ],
+                    correct: 0,
+                    explanation: "Time period -> 'when', set off with commas."
+                },
+                {
+                    id: 'c6',
+                    prompt: "Combine: <em>Linus Torvalds created Linux. He was born in Finland.</em>",
+                    options: [
+                        "Linus Torvalds, that created Linux, was born in Finland.",
+                        "Linus Torvalds who created Linux was born in Finland.",
+                        "Linus Torvalds, who created Linux, was born in Finland.",
+                        "Linus Torvalds, which created Linux, was born in Finland."
+                    ],
+                    correct: 2,
+                    explanation: "Person -> 'who', with commas."
+                },
+                {
+                    id: 'c7',
+                    prompt: "Combine: <em>JavaScript was created in 10 days. It powers modern web interactivity.</em>",
+                    options: [
+                        "JavaScript, which powers modern web interactivity, was created in 10 days.",
+                        "JavaScript, that powers modern web interactivity, was created in 10 days.",
+                        "JavaScript which powers modern web interactivity was created in 10 days.",
+                        "JavaScript, where powers modern web interactivity, was created in 10 days."
+                    ],
+                    correct: 0,
+                    explanation: "Programming language (thing) -> 'which', with commas."
+                },
+                {
+                    id: 'c8',
+                    prompt: "Combine: <em>Sheryl Sandberg wrote Lean In. Her executive work at Meta is well known.</em>",
+                    options: [
+                        "Sheryl Sandberg, whose executive work at Meta is well known, wrote Lean In.",
+                        "Sheryl Sandberg, who executive work at Meta is well known, wrote Lean In.",
+                        "Sheryl Sandberg whose executive work at Meta is well known wrote Lean In.",
+                        "Sheryl Sandberg, that executive work at Meta is well known, wrote Lean In."
+                    ],
+                    correct: 0,
+                    explanation: "'Whose' correctly describes 'her executive work'."
+                }
+            ],
+            secD: [
+                {
+                    id: 'd1',
+                    sentence: "The smartphone, <u>that was introduced in the late 2000s</u>, changed how people communicate.",
+                    question: "What is wrong with this sentence?",
+                    options: [
+                        "Commas are missing around the clause.",
+                        "'That' cannot be used in a nonessential clause; replace with 'which'.",
+                        "'That' should be changed to 'who'.",
+                        "There is no error."
+                    ],
+                    correct: 1,
+                    explanation: "Rule: 'That' is NEVER used in nonessential adjective clauses. Replace with 'which'."
+                },
+                {
+                    id: 'd2',
+                    sentence: "Bill Gates who founded Microsoft attended Harvard University.",
+                    question: "Identify the missing punctuation:",
+                    options: [
+                        "Needs a comma after 'Gates' and 'Microsoft'.",
+                        "Needs a comma only after 'Microsoft'.",
+                        "Needs a comma only after 'Gates'.",
+                        "No commas are needed."
+                    ],
+                    correct: 0,
+                    explanation: "Nonessential clause 'who founded Microsoft' needs commas around it: Bill Gates, who founded Microsoft, attended..."
+                },
+                {
+                    id: 'd3',
+                    sentence: "Stanford University, where Silicon Valley founders studied, is located in California.",
+                    question: "Is this sentence correct?",
+                    options: [
+                        "Correct! 'where' refers to place and commas are correctly used.",
+                        "Incorrect: 'where' should be changed to 'that'.",
+                        "Incorrect: missing commas.",
+                        "Incorrect: 'where' should be changed to 'which'."
+                    ],
+                    correct: 0,
+                    explanation: "This sentence is completely correct grammatically."
+                },
+                {
+                    id: 'd4',
+                    sentence: "Satya Nadella, who's leadership transformed Microsoft, became CEO in 2014.",
+                    question: "What is the error in this sentence?",
+                    options: [
+                        "'who's' (who is) should be changed to possessive 'whose'.",
+                        "'who's' should be changed to 'which'.",
+                        "Commas are unnecessary.",
+                        "Replace 'who's' with 'that'."
+                    ],
+                    correct: 0,
+                    explanation: "'Who's' means 'who is'. The possessive pronoun needed here is 'whose' (whose leadership)."
+                },
+                {
+                    id: 'd5',
+                    sentence: "The World Wide Web which was invented by Tim Berners-Lee turned 30 years old.",
+                    question: "Which correction is necessary?",
+                    options: [
+                        "Add commas: 'The World Wide Web, which was invented by Tim Berners-Lee, turned...'",
+                        "Change 'which' to 'that'.",
+                        "Change 'which' to 'who'.",
+                        "No change needed."
+                    ],
+                    correct: 0,
+                    explanation: "Nonessential clause 'which was invented...' requires commas on both sides."
+                },
+                {
+                    id: 'd6',
+                    sentence: "Ada Lovelace, whose father was the famous poet Lord Byron, wrote the first algorithm.",
+                    question: "Select the correct analysis:",
+                    options: [
+                        "Correct: 'whose' shows relationship/possession, separated by commas.",
+                        "Incorrect: replace 'whose' with 'who'.",
+                        "Incorrect: remove the commas.",
+                        "Incorrect: replace 'whose' with 'that'."
+                    ],
+                    correct: 0,
+                    explanation: "Sentence is correct. 'whose father' correctly shows family relationship/possession."
+                },
+                {
+                    id: 'd7',
+                    sentence: "Girls Who Code, where aims to close the gender gap in tech, offers summer immersion programs.",
+                    question: "What error exists in this sentence?",
+                    options: [
+                        "'where' should be changed to 'which' because it refers to an organization/thing, not a place.",
+                        "'where' should be changed to 'who'.",
+                        "Commas are missing.",
+                        "'where' should be changed to 'when'."
+                    ],
+                    correct: 0,
+                    explanation: "Girls Who Code is an organization acting as a subject (thing), so 'which' is required instead of 'where'."
+                },
+                {
+                    id: 'd8',
+                    sentence: "The year 1995, which eBay and Amazon were founded, was a turning point for e-commerce.",
+                    question: "What correction is needed?",
+                    options: [
+                        "Change 'which' to 'when' because it refers to a time period (1995).",
+                        "Change 'which' to 'where'.",
+                        "Change 'which' to 'that'.",
+                        "Remove the commas."
+                    ],
+                    correct: 0,
+                    explanation: "1995 is a year/time, so the relative pronoun 'when' must be used."
+                }
+            ]
+        };
+
+        let activeTab = 'secA';
+        let userAnswers = {};
+
+        function initApp() {
+            renderSectionA();
+            renderSectionB();
+            renderSectionC();
+            renderSectionD();
+            setupEventListeners();
+            updateProgress();
+        }
+
+        function setupEventListeners() {
+            document.getElementById('cheat-sheet-toggle').addEventListener('click', () => {
+                const content = document.getElementById('cheat-sheet-content');
+                const icon = document.getElementById('cheat-sheet-icon');
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        }
+
+        function switchTab(tabId) {
+            activeTab = tabId;
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+
+            document.querySelectorAll('#section-tabs button').forEach(btn => {
+                btn.className = "px-4 py-2.5 rounded-xl font-medium text-sm transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 flex items-center gap-2";
+            });
+
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.className = "px-4 py-2.5 rounded-xl font-medium text-sm transition-all bg-blue-600 text-white shadow-sm flex items-center gap-2";
+        }
+
+        function renderSectionA() {
+            const container = document.getElementById('secA-questions');
+            container.innerHTML = '';
+
+            questionsData.secA.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3";
+                
+                let sentenceHTML = `<div class="text-base sm:text-lg leading-relaxed text-slate-800">
+                    <span class="font-bold text-slate-400 mr-2">${idx + 1}.</span>`;
+
+                sentenceHTML += `<span>${q.textParts[0]}</span>`;
+                sentenceHTML += `<button onclick="toggleComma('${q.id}', 0)" id="btn-${q.id}-0" class="comma-btn mx-1 inline-flex items-center justify-center w-7 h-7 rounded-lg border border-dashed border-slate-300 text-slate-400 hover:border-blue-500 hover:text-blue-600 font-bold text-sm bg-slate-50">,</button>`;
+                sentenceHTML += `<span>${q.textParts[1]}</span>`;
+                
+                if (q.textParts[2] && q.textParts[2] !== ".") {
+                    sentenceHTML += `<button onclick="toggleComma('${q.id}', 1)" id="btn-${q.id}-1" class="comma-btn mx-1 inline-flex items-center justify-center w-7 h-7 rounded-lg border border-dashed border-slate-300 text-slate-400 hover:border-blue-500 hover:text-blue-600 font-bold text-sm bg-slate-50">,</button>`;
+                    sentenceHTML += `<span>${q.textParts[2]}</span>`;
+                } else if (q.textParts[2] === ".") {
+                    sentenceHTML += `.`;
+                }
+
+                sentenceHTML += `</div>`;
+
+                // Feedback Container
+                sentenceHTML += `<div id="fb-${q.id}" class="hidden mt-3 p-3 rounded-xl text-xs sm:text-sm"></div>`;
+
+                card.innerHTML = sentenceHTML;
+                container.appendChild(card);
+            });
+        }
+
+        function toggleComma(qId, index) {
+            if (!userAnswers[qId]) userAnswers[qId] = [false, false];
+            userAnswers[qId][index] = !userAnswers[qId][index];
+
+            const btn = document.getElementById(`btn-${qId}-${index}`);
+            if (userAnswers[qId][index]) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+            updateProgress();
+        }
+
+        function renderSectionB() {
+            const container = document.getElementById('secB-questions');
+            container.innerHTML = '';
+
+            questionsData.secB.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3";
+
+                let html = `<div class="text-base sm:text-lg leading-relaxed text-slate-800">
+                    <span class="font-bold text-slate-400 mr-2">${idx + 1}.</span>
+                    <span>${q.prefix}</span>
+                    <select onchange="selectPronoun('${q.id}', this.value)" id="select-${q.id}" class="mx-1 px-3 py-1 bg-slate-50 border border-slate-300 rounded-lg text-blue-600 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">-- select --</option>
+                        ${q.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                    </select>
+                    <span>${q.suffix}</span>
+                </div>`;
+
+                html += `<div id="fb-${q.id}" class="hidden mt-3 p-3 rounded-xl text-xs sm:text-sm"></div>`;
+                card.innerHTML = html;
+                container.appendChild(card);
+            });
+        }
+
+        function selectPronoun(qId, val) {
+            userAnswers[qId] = val;
+            updateProgress();
+        }
+
+        function renderSectionC() {
+            const container = document.getElementById('secC-questions');
+            container.innerHTML = '';
+
+            questionsData.secC.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3";
+
+                let html = `<div class="text-sm font-semibold text-slate-700">
+                    <span class="font-bold text-slate-400 mr-2">${idx + 1}.</span> ${q.prompt}
+                </div>`;
+
+                html += `<div class="space-y-2 mt-2">`;
+                q.options.forEach((opt, oIdx) => {
+                    html += `<label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="rad-${q.id}" value="${oIdx}" onchange="selectMCQ('${q.id}', ${oIdx})" class="mt-1 text-blue-600 focus:ring-blue-500">
+                        <span class="text-sm text-slate-800">${opt}</span>
+                    </label>`;
+                });
+                html += `</div>`;
+
+                html += `<div id="fb-${q.id}" class="hidden mt-3 p-3 rounded-xl text-xs sm:text-sm"></div>`;
+                card.innerHTML = html;
+                container.appendChild(card);
+            });
+        }
+
+        function renderSectionD() {
+            const container = document.getElementById('secD-questions');
+            container.innerHTML = '';
+
+            questionsData.secD.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3";
+
+                let html = `<div class="text-base text-slate-900 font-medium bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <span class="font-bold text-slate-400 mr-2">${idx + 1}.</span> "${q.sentence}"
+                </div>
+                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">${q.question}</div>`;
+
+                html += `<div class="space-y-2 mt-2">`;
+                q.options.forEach((opt, oIdx) => {
+                    html += `<label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="rad-${q.id}" value="${oIdx}" onchange="selectMCQ('${q.id}', ${oIdx})" class="mt-1 text-blue-600 focus:ring-blue-500">
+                        <span class="text-sm text-slate-800">${opt}</span>
+                    </label>`;
+                });
+                html += `</div>`;
+
+                html += `<div id="fb-${q.id}" class="hidden mt-3 p-3 rounded-xl text-xs sm:text-sm"></div>`;
+                card.innerHTML = html;
+                container.appendChild(card);
+            });
+        }
+
+        function selectMCQ(qId, optionIdx) {
+            userAnswers[qId] = optionIdx;
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const totalQuestions = 
+                questionsData.secA.length + 
+                questionsData.secB.length + 
+                questionsData.secC.length + 
+                questionsData.secD.length;
+
+            let answeredCount = 0;
+
+            // Sec A
+            questionsData.secA.forEach(q => {
+                if (userAnswers[q.id] && (userAnswers[q.id][0] || userAnswers[q.id][1])) answeredCount++;
+            });
+            // Sec B
+            questionsData.secB.forEach(q => {
+                if (userAnswers[q.id]) answeredCount++;
+            });
+            // Sec C
+            questionsData.secC.forEach(q => {
+                if (userAnswers[q.id] !== undefined) answeredCount++;
+            });
+            // Sec D
+            questionsData.secD.forEach(q => {
+                if (userAnswers[q.id] !== undefined) answeredCount++;
+            });
+
+            document.getElementById('progress-text').innerText = `${answeredCount}/${totalQuestions}`;
+            const pct = Math.round((answeredCount / totalQuestions) * 100);
+            document.getElementById('progress-bar').style.width = `${pct}%`;
+        }
+
+        function checkAllAnswers() {
+            let totalCorrect = 0;
+            const totalQuestions = 36;
+
+            // Check Section A
+            questionsData.secA.forEach(q => {
+                const fb = document.getElementById(`fb-${q.id}`);
+                const userAns = userAnswers[q.id] || [false, false];
+                const isCorrect = userAns[0] === q.correctCommas[0] && userAns[1] === q.correctCommas[1];
+
+                fb.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'bg-red-50', 'text-red-800');
+                if (isCorrect) {
+                    totalCorrect++;
+                    fb.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200');
+                    fb.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> <strong>Correct!</strong> ${q.explanation}`;
+                } else {
+                    fb.classList.add('bg-red-50', 'text-red-800', 'border', 'border-red-200');
+                    fb.innerHTML = `<i class="fa-solid fa-circle-xmark text-red-600 mr-1.5"></i> <strong>Incorrect.</strong> ${q.explanation}`;
+                }
+            });
+
+            // Check Section B
+            questionsData.secB.forEach(q => {
+                const fb = document.getElementById(`fb-${q.id}`);
+                const userAns = userAnswers[q.id];
+                const isCorrect = userAns === q.correct;
+
+                fb.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'bg-red-50', 'text-red-800');
+                if (isCorrect) {
+                    totalCorrect++;
+                    fb.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200');
+                    fb.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> <strong>Correct!</strong> ${q.explanation}`;
+                } else {
+                    fb.classList.add('bg-red-50', 'text-red-800', 'border', 'border-red-200');
+                    fb.innerHTML = `<i class="fa-solid fa-circle-xmark text-red-600 mr-1.5"></i> <strong>Incorrect.</strong> Correct answer: <strong>${q.correct}</strong>. ${q.explanation}`;
+                }
+            });
+
+            // Check Section C
+            questionsData.secC.forEach(q => {
+                const fb = document.getElementById(`fb-${q.id}`);
+                const userAns = userAnswers[q.id];
+                const isCorrect = userAns === q.correct;
+
+                fb.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'bg-red-50', 'text-red-800');
+                if (isCorrect) {
+                    totalCorrect++;
+                    fb.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200');
+                    fb.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> <strong>Correct!</strong> ${q.explanation}`;
+                } else {
+                    fb.classList.add('bg-red-50', 'text-red-800', 'border', 'border-red-200');
+                    fb.innerHTML = `<i class="fa-solid fa-circle-xmark text-red-600 mr-1.5"></i> <strong>Incorrect.</strong> ${q.explanation}`;
+                }
+            });
+
+            // Check Section D
+            questionsData.secD.forEach(q => {
+                const fb = document.getElementById(`fb-${q.id}`);
+                const userAns = userAnswers[q.id];
+                const isCorrect = userAns === q.correct;
+
+                fb.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'bg-red-50', 'text-red-800');
+                if (isCorrect) {
+                    totalCorrect++;
+                    fb.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200');
+                    fb.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> <strong>Correct!</strong> ${q.explanation}`;
+                } else {
+                    fb.classList.add('bg-red-50', 'text-red-800', 'border', 'border-red-200');
+                    fb.innerHTML = `<i class="fa-solid fa-circle-xmark text-red-600 mr-1.5"></i> <strong>Incorrect.</strong> ${q.explanation}`;
+                }
+            });
+
+            document.getElementById('score-text').innerText = totalCorrect;
+
+            // Show Summary Modal
+            const accuracy = Math.round((totalCorrect / totalQuestions) * 100);
+            document.getElementById('modal-score').innerText = `${totalCorrect}/${totalQuestions}`;
+            document.getElementById('modal-accuracy').innerText = `${accuracy}%`;
+            document.getElementById('summary-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('summary-modal').classList.add('hidden');
+        }
+
+        function resetAll() {
+            userAnswers = {};
+            document.querySelectorAll('.comma-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('select').forEach(sel => sel.value = '');
+            document.querySelectorAll('input[type="radio"]').forEach(rad => rad.checked = false);
+            document.querySelectorAll('[id^="fb-"]').forEach(fb => fb.classList.add('hidden'));
+            document.getElementById('score-text').innerText = '0';
+            updateProgress();
+        }
+
+        // Initialize on load
+        window.onload = initApp;
+    </script>
+</body>
+</html>
